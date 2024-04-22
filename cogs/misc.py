@@ -34,7 +34,6 @@ class misc(commands.Cog):
         await ctx.send(data_json['media']['gif'])
 
     @commands.command()
-    @commands.guild_only()
     async def colour(self, ctx):
         """ Gives a random hex value. """
         randomHex = random.randint(0, 16777215)

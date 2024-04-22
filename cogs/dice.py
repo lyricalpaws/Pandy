@@ -9,7 +9,6 @@ class dice(commands.Cog):
         self.config = default.get("config.json")
 
     @commands.command(aliases=["r"])
-    @commands.guild_only()
     async def roll(self, ctx, *, dicerolls: str = None):
         """ Rolls dice using the format xdx. """
         if dicerolls is None:
@@ -18,7 +17,6 @@ class dice(commands.Cog):
         await ctx.reply(result)
 
     @commands.command(aliases=["dndchar"])
-    @commands.guild_only()
     async def randchar(self, ctx):
         """ Rolls 4d6 and keeps the highest 3; does it 6 times. """
         diceResult = []
@@ -39,7 +37,6 @@ class dice(commands.Cog):
         await ctx.reply(finalResult)
 
     @commands.command(aliases=["rrr"])
-    @commands.guild_only()
     async def iterroll(self, ctx, iterations: int = None, *, dicerolls: str = None):
         """ Roll but iteratable, format like 3 1d20. """
         if iterations is None:

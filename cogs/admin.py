@@ -80,7 +80,6 @@ class admin(commands.Cog):
         await ctx.message.add_reaction("✅")
 
     @commands.command(hidden=True)
-    @commands.guild_only()
     @commands.check(repo.is_owner)
     async def gc(self, ctx):
         """ Cleans up trash """
