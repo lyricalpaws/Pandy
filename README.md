@@ -1,2 +1,1 @@
 # Pandy
-uwu
