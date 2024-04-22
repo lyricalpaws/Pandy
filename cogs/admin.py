@@ -1,6 +1,9 @@
 import gc
+import time
+import os
 from discord.ext import commands
 from utils import default, repo
+from subprocess import Popen, PIPE
 
 
 class admin(commands.Cog):
@@ -76,6 +79,46 @@ class admin(commands.Cog):
         await ctx.message.remove_reaction("🔃", member=ctx.me)
         await ctx.message.add_reaction("✅")
 
+    @commands.command(hidden=True)
+    @commands.guild_only()
+    @commands.check(repo.is_owner)
+    async def gc(self, ctx):
+        """ Cleans up trash """
+        await ctx.message.add_reaction("🔃")
+        gc.collect()
+        del gc.garbage[:]
+        await ctx.message.remove_reaction("🔃", member=ctx.me)
+        await ctx.message.add_reaction("✅")
+
+    @commands.command(hidden=True)
+    @commands.check(repo.is_owner)
+    async def reboot(self, ctx):
+        """ Reboot the bot """
+        await ctx.send("Rebooting now...")
+        time.sleep(1)
+        await self.bot.close()
+
+    @commands.command(hidden=True, aliases=["pull"])
+    @commands.check(repo.is_owner)
+    async def update(self, ctx, silently: bool = False):
+        """ Gets latest commits and applies them from git """
+        await ctx.message.add_reaction("🔃")
+
+        def run_shell(command):
+            with Popen(command, stdout=PIPE, stderr=PIPE, shell=True) as proc:
+                return [std.decode("utf-8") for std in proc.communicate()]
+
+        pull = await self.bot.loop.run_in_executor(
+            None, run_shell, "git pull"
+        )
+        msg = await ctx.send(f"```css\n{pull}\n```")
+        await ctx.message.remove_reaction("🔃", member=ctx.me)
+        for file in os.listdir("cogs"):
+            if file.endswith(".py"):
+                name = file[:-3]
+                await self.bot.unload_extension(f"cogs.{name}")
+                await self.bot.load_extension(f"cogs.{name}")
+        await ctx.message.add_reaction("✅")
 
 async def setup(bot):
     await bot.add_cog(admin(bot))

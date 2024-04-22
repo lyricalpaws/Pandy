@@ -11,7 +11,7 @@ class dice(commands.Cog):
     @commands.command(aliases=["r"])
     @commands.guild_only()
     async def roll(self, ctx, *, dicerolls: str = None):
-        """Rolls dice using the format xdx."""
+        """ Rolls dice using the format xdx. """
         if dicerolls is None:
             return await ctx.reply("Please input a dice formula. This bot runs on dndice, find the formatting @ <https://github.com/the-nick-of-time/dndice>")
         result = dndice.verbose(dicerolls)
@@ -20,7 +20,7 @@ class dice(commands.Cog):
     @commands.command(aliases=["dndchar"])
     @commands.guild_only()
     async def randchar(self, ctx):
-        """Rolls 4d6 and keeps the highest 3; does it 6 times."""
+        """ Rolls 4d6 and keeps the highest 3; does it 6 times. """
         diceResult = []
         for _ in range(6):
             # Roll 4 d6 dice, and keep the highest 3, append each result to diceResult.
@@ -41,7 +41,7 @@ class dice(commands.Cog):
     @commands.command(aliases=["rrr"])
     @commands.guild_only()
     async def iterroll(self, ctx, iterations: int = None, *, dicerolls: str = None):
-        """Roll but iteratable, format like 3 1d20."""
+        """ Roll but iteratable, format like 3 1d20. """
         if iterations is None:
             return
         diceResult = []

@@ -2,7 +2,6 @@ import discord
 import json
 import os
 import asyncio
-import datetime
 from discord.ext import commands
 from discord import Intents
 
