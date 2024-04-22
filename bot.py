@@ -22,6 +22,7 @@ async def on_ready():
 
 async def main():
     async with bot:
+        bot.remove_command("help")
         try:
             print("Logging in...")
             for file in os.listdir("cogs"):
