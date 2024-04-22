@@ -119,5 +119,15 @@ class admin(commands.Cog):
                 await self.bot.load_extension(f"cogs.{name}")
         await ctx.message.add_reaction("✅")
 
+    @commands.command(hidden=True)
+    @commands.is_owner()
+    async def default(self, ctx):
+        with open("assets/tenor.gif", "rb") as image:
+            f = image.read() 
+            b = bytearray(f) 
+            await self.bot.user.edit(avatar=b) 
+            await ctx.send('Avatar set')
+
+
 async def setup(bot):
     await bot.add_cog(admin(bot))
