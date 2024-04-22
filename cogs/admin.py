@@ -120,8 +120,8 @@ class admin(commands.Cog):
         await ctx.message.add_reaction("✅")
 
     @commands.command(hidden=True)
-    @commands.is_owner()
-    async def default(self, ctx):
+    @commands.check(repo.is_owner)
+    async def pandy(self, ctx):
         with open("assets/tenor.gif", "rb") as image:
             f = image.read() 
             b = bytearray(f) 
