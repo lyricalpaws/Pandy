@@ -122,12 +122,12 @@ class admin(commands.Cog):
 
     @commands.command(hidden=True)
     @commands.check(repo.is_owner)
-    async def pandy(self, ctx):
+    async def sync(self, ctx):
         await self.bot.tree.sync()
         await ctx.send("Synced")
 
-    @commands.hybrid_command(name="badge")
-    async def active_developer_badge(ctx: commands.Context):
+    @commands.hybrid_command()
+    async def badge(self, ctx: commands.Context):
         embed = discord.Embed(title="Program Ran Successfully",
                             description="**+** You have ran the bot correctly and have claimed your Discord Developer Badge. \n\n**+** It may take up to 24 hours or a tiny bit more for your badge to shop up here (https://discord.com/developers/active-developer)",
                             colour=0x00f53d)
