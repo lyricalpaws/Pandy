@@ -92,7 +92,7 @@ class info(commands.Cog):
         message = await ctx.send("*Pokes back*")
         ping = (time.monotonic() - before) * 1000
         await message.edit(
-            content=f"*Pokes back*%re\n`MSG :: {int(ping)}ms\nAPI :: {round(self.bot.latency * 1000)}ms`"
+            content=f"*Pokes back*\n`MSG :: {int(ping)}ms\nAPI :: {round(self.bot.latency * 1000)}ms`"
         )
 
     @commands.command(aliases=["?"])
