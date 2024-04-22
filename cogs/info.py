@@ -120,5 +120,6 @@ class info(commands.Cog):
             else:
                 await self.cogMapper(ctx, entity, command)
 
+
 async def setup(bot):
     await bot.add_cog(info(bot))

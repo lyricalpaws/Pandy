@@ -1,5 +1,5 @@
 import json
-import http
+import random
 import discord
 from urllib.request import urlopen, Request
 from discord.ext import commands
@@ -32,6 +32,16 @@ class misc(commands.Cog):
         except json.JSONDecodeError:
             return await ctx.send("I couldn't contact the api ;-;")
         await ctx.send(data_json['media']['gif'])
+
+    @commands.command()
+    @commands.guild_only()
+    async def colour(self, ctx):
+        """ Gives a random hex value. """
+        randomHex = random.randint(0, 16777215)
+        hexString = str(hex(randomHex))
+        hexNumber = hexString[2:]
+        embed = discord.Embed(title=f"#{hexNumber}", url=f"https://www.color-hex.com/color/{hexNumber}", colour=randomHex)
+        await ctx.reply(embed=embed)
 
 
 async def setup(bot):
