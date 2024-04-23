@@ -2,6 +2,7 @@ import gc
 import time
 import os
 import discord
+from discord import app_commands
 from discord.ext import commands
 from utils import default, repo
 from subprocess import Popen, PIPE
@@ -126,7 +127,7 @@ class admin(commands.Cog):
         await self.bot.tree.sync()
         await ctx.send("Synced")
 
-    @commands.hybrid_command()
+    @app_commands.command()
     async def badge(self, ctx: commands.Context):
         embed = discord.Embed(title="Program Ran Successfully",
                             description="**+** You have ran the bot correctly and have claimed your Discord Developer Badge. \n\n**+** It may take up to 24 hours or a tiny bit more for your badge to shop up here (https://discord.com/developers/active-developer)",

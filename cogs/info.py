@@ -95,8 +95,8 @@ class info(commands.Cog):
             content=f"*Pokes back*\n`MSG :: {int(ping)}ms\nAPI :: {round(self.bot.latency * 1000)}ms`"
         )
 
-    @commands.hybrid_command(description="See a list of bot commands.")
-    async def help(self, ctx: commands.Context, *, command: str = None):
+    @commands.command()
+    async def help(self, ctx, *, command: str = None):
         """View Bot Help Menu"""
         if not command:
             await self.commandMapper(ctx)

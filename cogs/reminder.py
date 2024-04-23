@@ -1,7 +1,7 @@
 import datetime
 import discord
 from discord.ext import commands, tasks
-from utils import default
+from utils import default, repo
 from zoneinfo import ZoneInfo
 
 
@@ -30,6 +30,20 @@ class reminder(commands.Cog):
             except Exception as e:
                 print(e)
 
+    @commands.command(hidden=True)
+    @commands.check(repo.is_owner)
+    async def remindtest(self, ctx):
+        for cutie in self.config.reminders:
+            try:
+                user = self.bot.get_user(cutie)
+                embed = discord.Embed(title="Remember to take your medication!!!!",
+                      description="If you haven't taken it yet then now is the best time to do it ❤️",
+                      colour=0xe11399,
+                      timestamp=datetime.datetime.now())
+                embed.set_footer(text="Love you dork")
+                await user.send(embed=embed)
+            except Exception as e:
+                print(e)
 
 async def setup(bot):
     await bot.add_cog(reminder(bot))
