@@ -14,7 +14,7 @@ class reminder(commands.Cog):
     def cog_unload(self):
         self.medsReminder.cancel()
 
-    time = datetime.time(hour=11, minute=17, tzinfo=ZoneInfo('Europe/London'))
+    time = datetime.time(hour=11, minute=00, tzinfo=ZoneInfo('Europe/London'))
 
     @tasks.loop(time=time)
     async def medsReminder(self):
