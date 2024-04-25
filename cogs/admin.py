@@ -132,7 +132,7 @@ class admin(commands.Cog):
         embed = discord.Embed(title="Program Ran Successfully",
                             description="**+** You have ran the bot correctly and have claimed your Discord Developer Badge. \n\n**+** It may take up to 24 hours or a tiny bit more for your badge to shop up here (https://discord.com/developers/active-developer)",
                             colour=0x00f53d)
-        await ctx.send(embed=embed, ephemeral=True)
+        await ctx.reply(embed=embed, ephemeral=True)
 
 
 async def setup(bot):
