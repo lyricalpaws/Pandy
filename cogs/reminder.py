@@ -29,21 +29,44 @@ class reminder(commands.Cog):
                 await user.send(embed=embed)
             except Exception as e:
                 print(e)
+                
+    @tasks.loop(time=time)
+    async def estrogenReminder(self):
+        dt = datetime.datetime.now()
+        dt = dt.weekday()
+        if dt == 2:
+            for owners in self.config.reminders:
+                try:
+                    user = self.bot.get_user(owners)
+                    embed = discord.Embed(title="It's estrogen injection day!",
+                        description="If you haven't taken it yet then now is the best time to do it ❤️",
+                        colour=0xe11399,
+                        timestamp=datetime.datetime.now())
+                    await user.send(embed=embed)
+                except Exception as e:
+                    print(e)
+        else:
+            return
 
     @commands.command(hidden=True)
     @commands.check(repo.is_owner)
     async def remindtest(self, ctx):
-        for cutie in self.config.reminders:
-            try:
-                user = self.bot.get_user(cutie)
-                embed = discord.Embed(title="Remember to take your medication!!!!",
-                      description="If you haven't taken it yet then now is the best time to do it ❤️",
-                      colour=0xe11399,
-                      timestamp=datetime.datetime.now())
-                embed.set_footer(text="Love you dork")
-                await user.send(embed=embed)
-            except Exception as e:
-                print(e)
+        dt = datetime.datetime.now()
+        weekday = dt.isoweekday()
+        print(weekday)
+        if weekday == 1:
+            for owners in self.config.reminders:
+                try:
+                    user = self.bot.get_user(owners)
+                    embed = discord.Embed(title="It's estrogen injection day!",
+                        description="If you haven't taken it yet then now is the best time to do it ❤️",
+                        colour=0xe11399,
+                        timestamp=datetime.datetime.now())
+                    await user.send(embed=embed)
+                except Exception as e:
+                    print(e)
+        else:
+            return
 
 async def setup(bot):
     await bot.add_cog(reminder(bot))
