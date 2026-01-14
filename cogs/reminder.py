@@ -54,19 +54,16 @@ class reminder(commands.Cog):
         dt = datetime.datetime.now()
         weekday = dt.isoweekday()
         print(weekday)
-        if weekday == 1:
-            for owners in self.config.reminders:
-                try:
-                    user = self.bot.get_user(owners)
-                    embed = discord.Embed(title="It's estrogen injection day!",
-                        description="If you haven't taken it yet then now is the best time to do it ❤️",
-                        colour=0xe11399,
-                        timestamp=datetime.datetime.now())
-                    await user.send(embed=embed)
-                except Exception as e:
-                    print(e)
-        else:
-            return
+        for owners in self.config.reminders:
+            try:
+                user = self.bot.get_user(owners)
+                embed = discord.Embed(title="It's estrogen injection day!",
+                    description="If you haven't taken it yet then now is the best time to do it ❤️",
+                    colour=0xe11399,
+                    timestamp=datetime.datetime.now())
+                await user.send(embed=embed)
+            except Exception as e:
+                print(e)
 
 async def setup(bot):
     await bot.add_cog(reminder(bot))
