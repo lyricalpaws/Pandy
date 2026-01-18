@@ -23,9 +23,9 @@ class reminder(commands.Cog):
                 user = self.bot.get_user(cutie)
                 embed = discord.Embed(title="Remember to take your medication!!!!",
                       description="If you haven't taken it yet then now is the best time to do it ❤️",
-                      url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview",
                       colour=0xe11399,
                       timestamp=datetime.datetime.now())
+                embed.set_image(url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview")
                 embed.set_footer(text="Love you dork")
                 await user.send(embed=embed)
             except Exception as e:
@@ -41,9 +41,9 @@ class reminder(commands.Cog):
                     user = self.bot.get_user(owners)
                     embed = discord.Embed(title="It's estrogen injection day!",
                         description="If you haven't taken it yet then now is the best time to do it ❤️",
-                        url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview",
                         colour=0xe11399,
-                        timestamp=datetime.datetime.now())  
+                        timestamp=datetime.datetime.now())
+                    embed.set_image(url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview")    
                     await user.send(embed=embed)
                 except Exception as e:
                     print(e)
@@ -61,10 +61,9 @@ class reminder(commands.Cog):
                 user = self.bot.get_user(owners)
                 embed = discord.Embed(title="It's estrogen injection day!",
                     description="If you haven't taken it yet then now is the best time to do it ❤️",
-                    url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview",
                     colour=0xe11399,
                     timestamp=datetime.datetime.now())
-                    
+                embed.set_image(url="https://cloud.neb.gay/s/Tb7eFSXi5SLeLnC/preview")
                 await user.send(embed=embed)
             except Exception as e:
                 print(e)
