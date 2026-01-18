@@ -23,9 +23,9 @@ class reminder(commands.Cog):
                 user = self.bot.get_user(cutie)
                 embed = discord.Embed(title="Remember to take your medication!!!!",
                       description="If you haven't taken it yet then now is the best time to do it ❤️",
+                      url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif"),
                       colour=0xe11399,
                       timestamp=datetime.datetime.now())
-                embed.set_image(url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif")
                 embed.set_footer(text="Love you dork")
                 await user.send(embed=embed)
             except Exception as e:
@@ -41,9 +41,9 @@ class reminder(commands.Cog):
                     user = self.bot.get_user(owners)
                     embed = discord.Embed(title="It's estrogen injection day!",
                         description="If you haven't taken it yet then now is the best time to do it ❤️",
+                        url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif"),
                         colour=0xe11399,
-                        timestamp=datetime.datetime.now())
-                    embed.set_image(url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif")    
+                        timestamp=datetime.datetime.now())  
                     await user.send(embed=embed)
                 except Exception as e:
                     print(e)
@@ -61,9 +61,10 @@ class reminder(commands.Cog):
                 user = self.bot.get_user(owners)
                 embed = discord.Embed(title="It's estrogen injection day!",
                     description="If you haven't taken it yet then now is the best time to do it ❤️",
+                    url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif"),
                     colour=0xe11399,
                     timestamp=datetime.datetime.now())
-                embed.set_image(url="https://media1.tenor.com/m/2Oy2gor-67EAAAAd/red-panda.gif")
+                    
                 await user.send(embed=embed)
             except Exception as e:
                 print(e)
