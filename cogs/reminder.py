@@ -25,7 +25,7 @@ class reminder(commands.Cog):
                       description="If you haven't taken it yet then now is the best time to do it ❤️",
                       colour=0xe11399,
                       timestamp=datetime.datetime.now())
-                embed.set_image(url="https://files.catbox.moe/vmuw23.gif")
+                embed.set_image(url="http://halley.systems/public/pandy_flowers.gif")
                 embed.set_footer(text="Love you dork")
                 await user.send(embed=embed)
             except Exception as e:
@@ -43,7 +43,7 @@ class reminder(commands.Cog):
                         description="If you haven't taken it yet then now is the best time to do it ❤️",
                         colour=0xe11399,
                         timestamp=datetime.datetime.now())
-                    embed.set_image(url="https://files.catbox.moe/vmuw23.gif")    
+                    embed.set_image(url="http://halley.systems/public/pandy_flowers.gif")    
                     await user.send(embed=embed)
                 except Exception as e:
                     print(e)
@@ -63,7 +63,7 @@ class reminder(commands.Cog):
                     description="If you haven't taken it yet then now is the best time to do it ❤️",
                     colour=0xe11399,
                     timestamp=datetime.datetime.now())
-                embed.set_image(url="https://files.catbox.moe/vmuw23.gif")
+                embed.set_image(url="http://halley.systems/public/pandy_flowers.gif")
                 await user.send(embed=embed)
             except Exception as e:
                 print(e)
